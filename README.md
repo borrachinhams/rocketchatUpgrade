@@ -1,4 +1,4 @@
-How to run
+How to
 =========
 
 After download the program, create file with name hosts and put the information for connect the hosts. Ex:
@@ -17,16 +17,14 @@ ansible_become_exe='su -'
 ansible_become_pass='myRootPass'
 ```
 
+Now you need run the command:
+In this example I will use the ansible vault, if not, just remove the `--ask-vault-pass line`
+
 ```
-ansible-playbook -i hosts --ask-vault-pass -e "version=3.18.1" playbook.yml
+ansible-playbook -i hosts --ask-vault-pass -e "version=4.0.3" playbook.yml
 ```
 
 License
 -------
 
 BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
