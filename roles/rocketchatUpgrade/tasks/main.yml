@@ -1,0 +1,18 @@
+---
+# tasks file for updateRocketchat
+
+# - name: "Verify variable VERSION are defined"
+#   assert:
+#     that: 
+#       - "{{ version }} is defined"
+#     fail_msg: "{{ version }} is not defined use\n-e version=3.18.0"
+#     success_msg: "Required variable {{ version }} is defined"
+
+- name: Creating backup
+  include_tasks: backup.yml
+
+- name: Update
+  include_tasks: update.yml
+
+- name: Install
+  include_tasks: install.yml

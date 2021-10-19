@@ -1,0 +1,5 @@
+---
+# defaults file for updateRocketchat
+
+#version: "3.18.1"
+version: "x.x.x"

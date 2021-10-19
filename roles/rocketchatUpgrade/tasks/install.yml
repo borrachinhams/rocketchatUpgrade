@@ -1,0 +1,17 @@
+---
+# tasks file for updateRocketchat
+
+- name: Install
+  shell: cd /tmp/bundle/programs/server && npm install && cd
+
+- name: Move new package
+  shell: mv /tmp/bundle /opt/Rocket.Chat
+
+- name: Move new package
+  shell: chown rocketchat:rocketchat -R /opt/Rocket.Chat
+
+- name: Start
+  shell: systemctl start rocketchat
+
+- name: Save package
+  shell: mv "/tmp/rocket.chat.tgz" "/backups/pacotes/rocket.chat-{{ version }}.tar.gz"

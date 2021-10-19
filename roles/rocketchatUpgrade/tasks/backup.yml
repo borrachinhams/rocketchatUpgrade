@@ -1,0 +1,13 @@
+---
+# tasks file for updateRocketchat
+
+- name: Stop rocket
+  shell: systemctl stop rocketchat
+
+- name: Remove OLD files
+  ansible.builtin.file:
+    path: /opt/Rocket.Chat.OLD
+    state: absent
+
+- name: Creating backup
+  shell: mv /opt/Rocket.Chat /opt/Rocket.Chat.OLD

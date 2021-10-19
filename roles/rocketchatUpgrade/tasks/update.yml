@@ -1,0 +1,25 @@
+---
+# tasks file for updateRocketchat
+
+- name: Install packages
+  apt:
+    name: build-essential
+    state: present
+    update_cache: yes
+
+- name: Update node
+  shell: n install 12.22.1
+
+- name: Download new package
+#  shell: curl -L https://releases.rocket.chat/latest/download -o /tmp/rocket.chat.tgz
+  get_url:
+    url: https://releases.rocket.chat/latest/download
+    dest: /tmp/rocket.chat.tgz
+    mode: '0644'
+
+- name: Unzip
+  #shell: "tar -xzf /tmp/rocket.chat.tgz -C /tmp"
+  ansible.builtin.unarchive:
+    src: /tmp/rocket.chat.tgz
+    dest: /tmp
+    remote_src: yes
